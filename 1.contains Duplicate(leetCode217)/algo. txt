@@ -1,0 +1,23 @@
+Algorithm to check if an array contains duplicates
+
+Initialize an empty set:
+
+Create an empty unordered_set called set to store the unique elements we encounter.
+
+Iterate through the array:
+
+For each element nums[i] in the input array nums:
+
+a. Check if the element is already in the set:
+
+If nums[i] is found in set, it means we have encountered a duplicate.
+
+Return true immediately because the array contains duplicates.
+
+b. If the element is not in the set:
+
+Insert nums[i] into set to mark it as seen.
+
+If the loop completes without finding duplicates:
+
+Return false because all elements are unique.

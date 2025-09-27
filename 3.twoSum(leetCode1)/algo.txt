@@ -1,0 +1,15 @@
+Count frequencies:
+
+Create an unordered_map mp to store the frequency of each number in nums.
+
+Iterate through the array:
+
+For each element nums[i]:
+a. Compute k = target - nums[i].
+b. If k == nums[i], check if mp[nums[i]] >= 2 → push i to answer.
+c. Otherwise, if k exists in mp, push i to answer.
+
+Return the answer vector containing indices of elements forming the sum.
+
+Time Complexity: O(N)
+Space Complexity: O(N)

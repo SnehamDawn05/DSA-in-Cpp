@@ -1,0 +1,24 @@
+Check lengths:
+
+If s and t have different lengths, return false.
+
+Count character frequencies:
+
+Initialize an array arr[26] = {0}.
+
+For each character s[i] and t[i]:
+
+Increment arr[s[i]-'a']
+
+Decrement arr[t[i]-'a']
+
+Verify frequencies:
+
+If any value in arr is not zero, return false.
+
+Return true:
+
+If all counts are zero, s and t are anagrams.
+
+Time Complexity: O(K) where K = length of strings
+Space Complexity: O(1) (fixed-size array of 26)
