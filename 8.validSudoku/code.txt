@@ -1,0 +1,61 @@
+/*class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        unordered_set<char> mp;
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(board[i][j]=='.') continue;
+                if(mp.find(board[i][j])!=mp.end()) return false;
+                else mp.insert(board[i][j]);
+            }
+            mp.clear();
+            for(int j=0;j<9;j++){
+                if(board[j][i]=='.') continue;
+                if(mp.find(board[j][i])!=mp.end()) return false;
+                else mp.insert(board[j][i]);
+            }
+            mp.clear();
+        }
+        for(int k=0;k<9;k+=3){
+            for(int l=0;l<9;l+=3){
+                for(int i=k;i<k+3;i++){
+                    for(int j=l;j<l+3;j++){
+                        if(board[i][j]=='.') continue;
+                        if(mp.find(board[i][j])!=mp.end()) return false;
+                        else mp.insert(board[i][j]);
+                    }
+                }
+                mp.clear();
+            }
+        }
+        return true;
+    }
+}; */
+
+
+
+
+
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        // row[i][num] -> has num appeared in row i?
+        // col[j][num] -> has num appeared in column j?
+        // box[k][num] -> has num appeared in 3x3 box k?
+        bool row[9][9]={false};
+        bool col[9][9]={false};
+        bool box[9][9]={false};
+
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(board[i][j]=='.') continue;
+                int num= board[i][j]-'1'; //convert '1'-'9' into 0-8
+                int boxIdx= (i/3)*3 + j/3;
+                if(row[i][num] || col[j][num] || box[boxIdx][num]) return false;
+                else row[i][num]=col[j][num]=box[boxIdx][num]=true;
+            }
+        }
+
+        return true;
+    }
+};

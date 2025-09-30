@@ -1,0 +1,13 @@
+https://leetcode.com/problems/longest-consecutive-sequence/
+
+Insert all numbers into a sorted set.
+
+Traverse set in order:
+
+If current = previous + 1 → increment streak length.
+
+Else reset streak length to 1.
+
+Track max streak length.
+
+Return maximum streak length.

@@ -1,0 +1,11 @@
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+Initialize bp = prices[0] (buy price), profit = 0.
+
+Traverse prices:
+
+Update profit = max(profit, current price - bp).
+
+Update bp = min(bp, current price).
+
+Return profit (or 0 if negative).

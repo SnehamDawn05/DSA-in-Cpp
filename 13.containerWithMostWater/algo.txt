@@ -1,0 +1,13 @@
+https://leetcode.com/problems/container-with-most-water/
+
+Initialize two pointers i=0 (left), j=n-1 (right) and maxArea = 0.
+
+While i < j:
+
+Compute area = min(height[i], height[j]) * (j-i).
+
+Update maxArea if larger.
+
+Move the pointer with smaller height inward.
+
+Return maxArea.

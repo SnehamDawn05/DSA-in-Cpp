@@ -1,0 +1,17 @@
+https://leetcode.com/problems/product-of-array-except-self/
+
+Initialize two arrays:
+
+pProd[i] = product of all elements up to index i.
+
+sProd[i] = product of all elements from index i to end.
+
+Fill pProd from left → right, sProd from right → left.
+
+For each index i:
+
+Result = pProd[i-1] * sProd[i+1].
+
+Handle edges separately (first = sProd[1], last = pProd[n-2]).
+
+Return result array.

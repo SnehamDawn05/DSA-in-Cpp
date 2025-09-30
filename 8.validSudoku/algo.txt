@@ -1,0 +1,41 @@
+https://leetcode.com/problems/valid-sudoku/
+
+(Set-based approach)
+
+Algorithm:
+
+For each row:
+
+Use a set to track seen numbers.
+
+If duplicate → return false.
+
+For each column:
+
+Check duplicates in the same way.
+
+For each 3×3 sub-box:
+
+Check duplicates with a set.
+
+If no conflicts found → return true.
+
+--------------------------------------------------------------------------------------------------------------
+
+(Boolean array approach)
+
+Algorithm:
+
+Use 3 boolean arrays:
+
+row[9][9], col[9][9], box[9][9].
+
+For each cell (i,j) with digit num:
+
+Find box index = (i/3)*3 + j/3.
+
+If already marked in corresponding row/col/box → invalid.
+
+Else mark as seen.
+
+If all cells checked → valid.

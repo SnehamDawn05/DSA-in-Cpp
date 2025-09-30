@@ -1,0 +1,23 @@
+https://leetcode.com/problems/encode-and-decode-strings/description/
+
+Encode Algorithm:
+
+Start with empty string.
+
+For each word in list → append word + "=".
+
+Return encoded string.
+
+Decode Algorithm:
+
+Initialize empty list ans with one empty string.
+
+Traverse encoded string:
+
+If char is "=" → start a new string in ans.
+
+Else append character to current string.
+
+Remove last empty string.
+
+Return ans.

@@ -1,0 +1,17 @@
+https://leetcode.com/problems/longest-repeating-character-replacement/
+
+Initialize pointers i=0, j=0, freq[26] = {0}, mostFreqChar.
+
+While j < n:
+
+Increment frequency of s[j].
+
+Update mostFreqChar if needed.
+
+If (window size) - freq[mostFreqChar] > k → shrink window from left (i++).
+
+Update max length.
+
+Move j++.
+
+Return max length.

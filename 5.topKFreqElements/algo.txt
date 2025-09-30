@@ -1,0 +1,11 @@
+https://leetcode.com/problems/top-k-frequent-elements/
+
+Count frequency of each element using hashmap mp.
+
+Create buckets where index = frequency, value = list of elements with that frequency.
+
+Traverse buckets from high frequency → low.
+
+Collect elements until k results are found.
+
+Return the result list.

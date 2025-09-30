@@ -1,0 +1,15 @@
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+Initialize two pointers: i=0, j=n-1.
+
+While i < j:
+
+Compute sum = nums[i] + nums[j].
+
+If sum == target → return indices (i+1, j+1).
+
+If sum < target → move i++.
+
+Else → move j--.
+
+Return result.

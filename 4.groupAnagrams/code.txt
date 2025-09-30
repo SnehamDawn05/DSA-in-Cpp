@@ -1,0 +1,66 @@
+/*class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> ans;
+        for(int i=0;i<strs.size();i++){
+            string t= strs[i];
+            bool placed=false;
+            for(int j=0;j<ans.size();j++){
+                string s= ans[j][0];
+                bool flag=true;
+                if(s.size()!=t.size()){
+                    flag=false;
+                    continue;
+                } 
+                int arr[26]={0};
+                for(int i=0;i<s.size();i++){
+                    arr[s[i]-'a']++;
+                    arr[t[i]-'a']--;
+                }
+                for(int i=0;i<26;i++){
+                    if(arr[i]!=0) flag=false;
+                }
+                if(flag){
+                    ans[j].push_back(t);
+                    placed=true;
+                    break;
+                }
+            }
+            if(!placed){
+                ans.push_back(vector<string>());
+                ans.back().push_back(t);
+            }
+        }
+        return ans;
+    }
+};*/
+
+
+
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> mp;
+        for(int i=0;i<strs.size();i++){
+            string s=strs[i];
+            int freq[26]= {0};
+            for(int j=0;j<s.size();j++){
+                freq[s[j]-'a']++;
+            }
+            string key="";
+            for(int j=0;j<26;j++){
+                key+=to_string(freq[j])+"#";
+            }
+            if(mp.find(key)==mp.end()) mp[key]=vector<string>();
+            mp[key].push_back(s);
+        }
+        vector<vector<string>> ans;
+        for(auto &k: mp){
+            ans.push_back(move(k.second));
+        }
+
+        //k is already a pair<const string, vector<string>> (i.e., one entry of the hashmap). So mp[k] is invalid, because unordered_map expects a key (like string), not a pair. p.first is the key, p.second is the value
+
+        return ans;
+    }
+};

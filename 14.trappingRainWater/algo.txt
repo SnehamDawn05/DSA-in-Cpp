@@ -1,0 +1,15 @@
+https://leetcode.com/problems/trapping-rain-water/
+
+Precompute:
+
+pmax[i] = max height from start to index i.
+
+smax[i] = max height from index i to end.
+
+For each bar i (except edges):
+
+amt = min(pmax[i-1], smax[i+1]) - height[i].
+
+If amt > 0 → add to total.
+
+Return total trapped water.

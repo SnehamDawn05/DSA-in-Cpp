@@ -1,0 +1,25 @@
+https://leetcode.com/problems/3sum/
+
+Sort the array.
+
+For each index i:
+
+Skip duplicates.
+
+Use two pointers j=i+1, k=n-1.
+
+While j < k:
+
+If nums[i] + nums[j] + nums[k] == 0:
+
+Add triplet to result.
+
+Skip duplicate j and k.
+
+Move inward.
+
+Else if sum < 0 → move j++.
+
+Else → move k--.
+
+Return list of triplets.

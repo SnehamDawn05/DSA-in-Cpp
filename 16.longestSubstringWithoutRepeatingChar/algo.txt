@@ -1,0 +1,11 @@
+https://leetcode.com/problems/longest-substring-without-repeating-characters/
+
+Initialize two pointers i=0, j=0 and an empty set seen.
+
+While j < n:
+
+If s[j] not in set → insert it, move j++, update max length.
+
+Else → remove s[i] from set, move i++.
+
+Return maximum length.

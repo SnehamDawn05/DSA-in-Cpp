@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        int i=0,j=0,l=0;
+        vector<int> freq(26,0);
+        char mostFreqChar=s[0];
+        while(i<=j && j<s.length()){
+            freq[s[j]-'A']++;
+            if(freq[s[j]-'A']>freq[mostFreqChar-'A']) mostFreqChar=s[j];
+            if((j-i+1)-freq[mostFreqChar-'A']>k){
+                freq[s[i]-'A']--;
+                i++;
+            }
+            l= max(l, j-i+1);
+            j++;
+        }
+        return l;
+    }
+};

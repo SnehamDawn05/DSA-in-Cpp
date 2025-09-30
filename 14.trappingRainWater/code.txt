@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n= height.size();
+        vector<int> smax(n);
+        vector<int> pmax(n);
+        smax[n-1]=height[n-1];
+        pmax[0]=height[0];
+        for(int i=1;i<n;i++){
+            int x=n-1-i;
+            pmax[i]=(max(pmax[i-1],height[i]));
+            smax[x]=(max(smax[x+1],height[x]));
+        }
+        int total=0;
+        for(int i=1;i<n-1;i++){
+            int amt= min(pmax[i-1],smax[i+1])-height[i];
+            if(amt<0) continue;
+            else{
+                total+=amt;
+            }
+        }
+        return total;
+    }
+};

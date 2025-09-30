@@ -1,0 +1,15 @@
+https://leetcode.com/problems/group-anagrams/
+
+Initialize hashmap mp (key = character frequency signature, value = list of words).
+
+For each string:
+
+Build a frequency count of 26 letters.
+
+Convert it into a key string (e.g., "1#0#0#...").
+
+Insert the word into mp[key].
+
+Collect all values from mp into result vector ans.
+
+Return ans.
