@@ -1,0 +1,21 @@
+https://leetcode.com/problems/sliding-window-maximum/submissions/1788516804/
+
+Use a deque dq to keep track of potential maximums in the current window.
+
+Initialize the first window (first k elements):
+
+For each element, remove elements from the back of dq smaller than the current element.
+
+Push current element to the back.
+
+Slide the window from index k to nums.size() - 1:
+
+Remove the element going out of the window from the front if it equals dq.front().
+
+Remove elements smaller than current element from the back.
+
+Push current element to the back.
+
+Record dq.front() as the maximum for the current window.
+
+Return the collected maximums for all windows.

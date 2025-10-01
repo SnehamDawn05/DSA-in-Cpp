@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        int l1=s1.length(), l2=s2.length();
+        if(l1>l2) return false;
+        vector<int> f1(26,0), f2(26,0);
+        for(int i=0;i<l1;i++){
+            f1[s1[i]-'a']++;
+            f2[s2[i]-'a']++;
+        }
+        int i=0, j=i+l1-1;
+        while(j<l2){
+            if(f1==f2) return true;
+            f2[s2[i]-'a']--;
+            i++;
+            j++;
+            if(j<l2) f2[s2[j]-'a']++;
+        }
+        return false;
+    }
+};

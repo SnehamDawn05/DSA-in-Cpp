@@ -1,0 +1,53 @@
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        unordered_map<char,int> smap, tmap;
+
+        // build frequency map for t
+        for (char c : t) {
+            tmap[c]++;
+        }
+
+        int sp = 0, ep = 0;
+        int anssp = 0, ansep = 0;
+        int matchcount = 0;
+        int len = INT_MAX;
+
+        while (ep < s.size()) {
+            if (matchcount == t.size()) {
+                if ((ep - sp) < len) {
+                    len = ep - sp;
+                    anssp = sp;
+                    ansep = ep;
+                }
+                smap[s[sp]]--;
+                if (smap[s[sp]] < tmap[s[sp]]) {
+                    matchcount--;
+                }
+                sp++;
+            } else {
+                smap[s[ep]]++;
+                if (smap[s[ep]] <= tmap[s[ep]]) {
+                    matchcount++;
+                }
+                ep++;
+            }
+        }
+
+        // shrink at the end if still valid
+        while (matchcount == t.size()) {
+            if ((ep - sp) < len) {
+                len = ep - sp;
+                anssp = sp;
+                ansep = ep;
+            }
+            smap[s[sp]]--;
+            if (smap[s[sp]] < tmap[s[sp]]) {
+                matchcount--;
+            }
+            sp++;
+        }
+
+        return len == INT_MAX ? "" : s.substr(anssp, len);
+    }
+};

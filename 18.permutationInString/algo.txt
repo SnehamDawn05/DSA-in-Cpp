@@ -1,0 +1,17 @@
+https://leetcode.com/problems/permutation-in-string/submissions/1788359718/
+
+If s1 is longer than s2, return false.
+
+Count frequency of all characters in s1 (f1) and the first len(s1) characters of s2 (f2).
+
+If f1 == f2, return true.
+
+Slide a window of size len(s1) across s2:
+
+Add the new character (right end).
+
+Remove the old character (left end).
+
+If f1 == f2, return true.
+
+If no match found, return false.

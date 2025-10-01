@@ -1,0 +1,25 @@
+https://leetcode.com/problems/minimum-window-substring/
+
+Build frequency map of string t (tmap).
+
+Initialize two pointers sp (start) and ep (end) for the sliding window, and variables to track best window length and indices.
+
+Use smap to count characters in current window.
+
+Expand window by moving ep:
+
+Add s[ep] to smap.
+
+If this char count doesn’t exceed required (tmap), increase matchcount.
+
+When matchcount == t.size() (all characters matched):
+
+Try shrinking window from sp.
+
+Update result if current window is smaller.
+
+If removing s[sp] breaks validity, decrease matchcount.
+
+Continue expanding and shrinking until end of string.
+
+Return the smallest valid window substring, or "" if none exists.
